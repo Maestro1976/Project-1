@@ -2,35 +2,6 @@ package com.company;
 import java.util.*;
 public class Level1
 {
-    public static void main(String[] args)
-    {
-        Scanner sc = new Scanner(System.in);
-        int N;
-        long factorial;
-        long emeralds;
-        System.out.println("Введите целое неотрицательное число");
-        try
-        {
-            N = sc.nextInt();
-            if (N > 0)
-            {
-                factorial = Method.squirrel(N);
-                emeralds = Method.quantityEmeralds(factorial);
-                System.out.println("Количество изумрудов = " + emeralds);
-            }
-            else
-            {
-                System.err.println("Ошибка ввода! Число должно быть больше нуля!");
-            }
-        }
-        catch (InputMismatchException e)
-        {
-            System.err.println("Ошибка ввода! Введите целое число");
-        }
-    }
-}
-class Method
-{
     public static long squirrel(int N)
     {
         long result = 1;
@@ -49,5 +20,31 @@ class Method
             sum = i % 10;
         }
         return sum;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int N;
+        long factorial;
+        long emeralds;
+        System.out.println("Введите целое неотрицательное число");
+        try
+        {
+            N = sc.nextInt();
+            if (N > 0)
+            {
+                factorial = squirrel(N);
+                emeralds = quantityEmeralds(factorial);
+                System.out.println("Количество изумрудов = " + emeralds);
+            }
+            else
+            {
+                System.err.println("Ошибка ввода! Число должно быть больше нуля!");
+            }
+        }
+        catch (InputMismatchException e)
+        {
+            System.err.println("Ошибка ввода! Введите целое число");
+        }
     }
 }
