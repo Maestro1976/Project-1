@@ -1,18 +1,25 @@
+package com.company;
+
 import java.util.*;
 public class Level1
 {
-    public static int squirrel(int N)
+    public static int odometer(int [] oksana)
     {
-        int result = 1;
-        int sum = 0;
-        for (int i = 1; i <= N; i++)
+        int    prevTime = 0;//время в пердыдущий раз
+        int    distanceTotal = 0;//Общее расстояние
+        int    distanceCurrent = 0;//Текущее расстояние
+        int    timeCurrent;//Текущее время
+        int    speedCurrent;//Текущяя скорость
+        for (int i = 0; i < oksana.length / 2; i++)
         {
-            result *= i;
+            speedCurrent    = oksana[i * 2];
+            timeCurrent     = oksana[i * 2 + 1] - prevTime;
+
+            distanceCurrent = timeCurrent * speedCurrent;
+
+            distanceTotal  += distanceCurrent;
+            prevTime       += timeCurrent;
         }
-        for (int i = result; i > 0; i = i / 10)
-        {
-            sum = i % 10;
-        }
-        return sum;
+        return distanceTotal;
     }
 }
